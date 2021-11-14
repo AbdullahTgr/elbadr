@@ -32,7 +32,6 @@
 
         @include('layouts.footer')
         
-        @yield('scripts')  
 
   <!-- Js Plugins -->
   <script src="js/jquery-3.3.1.min.js"></script>
@@ -44,6 +43,7 @@
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/main.js"></script>
 
+        @yield('scripts')  
 
 </body>
   

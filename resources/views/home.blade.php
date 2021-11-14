@@ -24,10 +24,14 @@
                             <li><a href="#">Fresh Onion</a></li>
                             <li><a href="#">Papayaya & Crisps</a></li>
                             <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
+
                         </ul>
                     </div>
                 </div>
+
+<button  id="checkout"  class="site-btn ">buy</button>
+<div  id="showpayform" class="col-lg-9">Show Payment Form</div> 
+
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
@@ -37,8 +41,11 @@
                                     <span class="arrow_carrot-down"></span>
                                 </div>
                                 <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <button type="submit"  class="site-btn ">SEARCH</button>
                             </form>
+                        
+
+                            
                         </div>
                         <div class="hero__search__phone">
                             <div class="hero__search__phone__icon">
@@ -121,6 +128,8 @@
             </div>
             <div class="row featured__filter">
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+
+                    
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
                             <ul class="featured__item__pic__hover">
@@ -535,5 +544,24 @@
 
 @section('scripts')
 
+<script>
+
+       $(document).on('click','#checkout',function(e){
+       e.preventDefault();
+
+       $.ajax({
+                type:'get',
+                url:"{{ route('get-checkout-id') }}",
+                data:{
+                    price:"500",
+                    offer_id:"12",
+                },
+                success: function( data ) {
+                    $("#showpayform").empty().html(data.content);
+                }
+            }); 
+       });
+
+</script>
 
 @endsection
