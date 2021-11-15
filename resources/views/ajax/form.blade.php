@@ -1,12 +1,9 @@
 @section('main')
-<pre>
- @php 
-print_r($res) ;
-echo $res['id'];
-@endphp   
-</pre>
 
-<script src="https://eu-test.oppwa.com/v1/paymentWidgets.js?checkoutId={{$res['id']}}"></script>
-<form action="{{route('get-checkout-id',$id,$res['id'])}}" class="paymentWidgets" data-brands="VISA MASTER AMEX"></form>
+
+
+
+<script src="https://eu-test.oppwa.com/v1/paymentWidgets.js?checkoutId={{$respnsedata['id']}}"></script>
+<form action="{{route('ini',$id,$respnsedata['id'])}}" class="paymentWidgets" data-brands="VISA MASTER AMEX MADA"></form>
 
 @stop
